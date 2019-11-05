@@ -11,6 +11,8 @@ import Mint from 'mint-ui'
 import 'mint-ui/lib/style.css'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+import dingdanadd from '@/page/dingdanAdd'
+import addressadd from '@/page/addressAdd'
 
 
 
@@ -30,6 +32,8 @@ Vue.use(ElementUI)
 Vue.config.productionTip = false
 
 
+Vue.component('dingdanadd',dingdanadd)
+Vue.component('addressadd',addressadd)
 
 
 

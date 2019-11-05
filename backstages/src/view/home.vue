@@ -1,8 +1,13 @@
 <template>
 	<div class="home">
-		<h2 class="title">
-			艺欣后台管理系统
-		</h2>
+		<div class="title">
+			<h3>
+				艺欣后台管理系统
+			</h3>
+			<div class="name">会员: 齐文蒸先生</div>
+			<p>(艺欣艺术学校管理系统)</p>
+			<div class="tui">退出</div>
+		</div>
 		<div class="box">
 			<ul class="list">
 				<li v-for="item,index in listArr" @click="qiehuan(index)" :class="curIndex == index?'active':''"><router-link :to="{path:item.src}" tag="div">{{item.title}}</router-link></li>
@@ -68,16 +73,33 @@
 	}
 }
 .title{
-	margin:30px 0 0 15px;
+	display: flex;
+	justify-content:flex-start;
+	align-items: center;
+	background:goldenrod;
+	color:#fff;
+	height:50px;
+	line-height: 50px;
+	padding-left:50px;
+	.name{
+		margin-left:60%;
+	}
+	p{
+		margin-left:1%;
+	}
+	.tui{
+		margin-left:3%;
+	}
 }
 .list{
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 	align-content: center;
 	flex-flow: column;
 	margin-top:30px;
 	width:200px;
 	border:1px solid #ccc;
+	height:500px;
 	li{
 		width:200px;
 		list-style: none;
