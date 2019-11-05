@@ -8,6 +8,7 @@
 					<span>艺欣艺术,美术组、天使宝宝班300元学费任你砍！砍！砍！</span>
 					<p class="text-p">￥300 <span>4870浏览</span> <span>67赞</span> <span>0评论</span></p>
 				</li>
+				
 				<li class="btn-list">
 					<p>删除</p>
 				</li>
