@@ -10,6 +10,7 @@ import youhui from '@/views/youhui'
 import kanjia from '@/views/kanjia'
 import pintuan from '@/views/pintuan'
 import address from '@/views/address'
+import login from '@/mao/login'
 
 Vue.use(Router)
 
@@ -57,7 +58,11 @@ export default new Router({
       		path: 'address',
 		      name: 'address',
 		      component: address,
-      	},
+      	},{
+      		path: 'login',
+		      name: 'login',
+		      component: login,
+      	}
       ]
     }
   ]
