@@ -1,7 +1,7 @@
 <template>
 	<div class="img">
 		<div  @click="jia()" >添加</div>
-		<div class='jia'><input @keyup.enter="add($event)" v-show="states?'active':''" type="text" placeholder="写下图片路径点击回车添加"/></div>
+		<div class='jia'><input @keyup.enter="add($event)" v-model="str" v-show="states?'active':''" type="text" placeholder="写下图片路径点击回车添加"/></div>
 		<ul class='list-i'>
 			<li class='list-li' v-for="item,index in imgs"><img :src="item" alt="" /><span @click="remove(index)">删除</span></li>
 		</ul>
@@ -13,6 +13,8 @@
 		data(){
 			return{
 				states:false,
+				imgs:[],
+				str:'',
 				imgs:[]
 			}
 		},
@@ -34,12 +36,21 @@
 					e.target.value=''
 					this.states=false
 				}
-				
 			},
 			getData(){
 				this.axios.get('/a/dimg/').then(res=>{
 					this.imgs = res.data.listArr;
 				})
+				for(var i=0;i<this.imgs.length;i++){
+					if(this.str!=this.imgs[i]){
+						console.log('路径错误')
+					}else{
+						var add=e.target.value
+						this.imgs.push(add)
+						e.target.value=''
+						this.states=false
+					}
+				}
 			}
 		},
 		mounted(){

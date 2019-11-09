@@ -1,133 +1,78 @@
 <template>
 	<div class="kecheng">
 		<div class="btn-add"><p>添加</p></div>
-		<div class="lis-box">
+		<div class="lis-box" v-for="(item,index) in cartlis">
 			<ul class="ul-list">
 				<li><img src="../../build/logo.png"/></li>
 				<li>
-					<span>艺欣艺术,美术组、天使宝宝班300元学费任你砍！砍！砍！</span>
-					<p class="text-p">￥300 <span>4870浏览</span> <span>67赞</span> <span>0评论</span></p>
+					<span>{{item.name}}</span>
+					<p class="text-p">￥{{item.price}} <span>{{item.list}}浏览</span> <span>{{item.zan}}赞</span> <span>{{item.pl}}评论</span></p>
 				</li>
 				
 				<li class="btn-list">
-					<p>删除</p>
+					<p @click="remove(index)">删除</p>
 				</li>
 			</ul>
 		</div>
-		<div class="lis-box">
-			<ul class="ul-list">
-				<li><img src="../../build/logo.png"/></li>
-				<li>
-					<span>艺欣艺术,美术组、天使宝宝班300元学费任你砍！砍！砍！</span>
-					<p class="text-p">￥300 <span>4870浏览</span> <span>67赞</span> <span>0评论</span></p>
-				</li>
-				<li class="btn-list">
-					<p>删除</p>
-				</li>
-			</ul>
-		</div>
-		<div class="lis-box">
-			<ul class="ul-list">
-				<li><img src="../../build/logo.png"/></li>
-				<li>
-					<span>艺欣艺术,美术组、天使宝宝班300元学费任你砍！砍！砍！</span>
-					<p class="text-p">￥300 <span>4870浏览</span> <span>67赞</span> <span>0评论</span></p>
-				</li>
-				<li class="btn-list">
-					<p>删除</p>
-				</li>
-			</ul>
-		</div>
-		<div class="lis-box">
-			<ul class="ul-list">
-				<li><img src="../../build/logo.png"/></li>
-				<li>
-					<span>艺欣艺术,美术组、天使宝宝班300元学费任你砍！砍！砍！</span>
-					<p class="text-p">￥300 <span>4870浏览</span> <span>67赞</span> <span>0评论</span></p>
-				</li>
-				<li class="btn-list">
-					<p>删除</p>
-				</li>
-			</ul>
-		</div>
-		<div class="lis-box">
-			<ul class="ul-list">
-				<li><img src="../../build/logo.png"/></li>
-				<li>
-					<span>艺欣艺术,美术组、天使宝宝班300元学费任你砍！砍！砍！</span>
-					<p class="text-p">￥300 <span>4870浏览</span> <span>67赞</span> <span>0评论</span></p>
-				</li>
-				<li class="btn-list">
-					<p>删除</p>
-				</li>
-			</ul>
-		</div>
-		<div class="lis-box">
-			<ul class="ul-list">
-				<li><img src="../../build/logo.png"/></li>
-				<li>
-					<span>艺欣艺术,美术组、天使宝宝班300元学费任你砍！砍！砍！</span>
-					<p class="text-p">￥300 <span>4870浏览</span> <span>67赞</span> <span>0评论</span></p>
-				</li>
-				<li class="btn-list">
-					<p>删除</p>
-				</li>
-			</ul>
-		</div>
-		<div class="lis-box">
-			<ul class="ul-list">
-				<li><img src="../../build/logo.png"/></li>
-				<li>
-					<span>艺欣艺术,美术组、天使宝宝班300元学费任你砍！砍！砍！</span>
-					<p class="text-p">￥300 <span>4870浏览</span> <span>67赞</span> <span>0评论</span></p>
-				</li>
-				<li class="btn-list">
-					<p>删除</p>
-				</li>
-			</ul>
-		</div>
-		<div class="lis-box">
-			<ul class="ul-list">
-				<li><img src="../../build/logo.png"/></li>
-				<li>
-					<span>艺欣艺术,美术组、天使宝宝班300元学费任你砍！砍！砍！</span>
-					<p class="text-p">￥300 <span>4870浏览</span> <span>67赞</span> <span>0评论</span></p>
-				</li>
-				<li class="btn-list">
-					<p>删除</p>
-				</li>
-			</ul>
-		</div>
-		<div class="lis-box">
-			<ul class="ul-list">
-				<li><img src="../../build/logo.png"/></li>
-				<li>
-					<span>艺欣艺术,美术组、天使宝宝班300元学费任你砍！砍！砍！</span>
-					<p class="text-p">￥300 <span>4870浏览</span> <span>67赞</span> <span>0评论</span></p>
-				</li>
-				<li class="btn-list">
-					<p>删除</p>
-				</li>
-			</ul>
-		</div>
-		<div class="lis-box">
-			<ul class="ul-list">
-				<li><img src="../../build/logo.png"/></li>
-				<li>
-					<span>艺欣艺术,美术组、天使宝宝班300元学费任你砍！砍！砍！</span>
-					<p class="text-p">￥300 <span>4870浏览</span> <span>67赞</span> <span>0评论</span></p>
-				</li>
-				<li class="btn-list">
-					<p>删除</p>
-				</li>
-			</ul>
-		</div>
+		
 	</div>
 </template>
 
 <script>
 	export default{
+		data(){
+			return{
+				cartlis:[
+					{
+						name:'121',
+						price:'300',
+						list:'4870',
+						type:1,
+						zan:'7',
+						pl:'2',
+						index:0
+					},{
+						name:'121',
+						price:'300',
+						list:'4870',
+						type:1,
+						zan:'7',
+						pl:'2',
+						index:1
+					},{
+						name:'121',
+						price:'300',
+						list:'4870',
+						type:1,
+						zan:'7',
+						pl:'2',
+						index:2
+					},{
+						name:'121',
+						price:'300',
+						list:'4870',
+						type:1,
+						zan:'7',
+						pl:'2',
+						index:3
+					}
+				]
+			}
+		},
 		mounted(){
+//			this.axios.get('/lis').then(res=>{
+//				console.log(res)
+//			})
+		},
+		methods:{
+			remove(index){
+				for(var i=0;i<this.cartlis.length;i++){
+					if(index==this.cartlis[i].index){
+						 
+					}
+				}
+				
+			}
 		}
 	}
 </script>
