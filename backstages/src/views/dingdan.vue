@@ -20,54 +20,7 @@
 	export default{
 		data(){
 			return{
-				dingdanArr:[
-					{
-						name:'订单一号',
-						count:32,
-						price:12,
-						img:require('@/assets/img/1.png')
-					},{
-						name:'订单二号',
-						count:322,
-						price:122,
-						img:require('@/assets/img/2.png')
-					},{
-						name:'订单三号',
-						count:42,
-						price:1,
-						img:require('@/assets/img/3.png')
-					},{
-						name:'订单四号',
-						count:332,
-						price:82,
-						img:require('@/assets/img/4.png')
-					},{
-						name:'订单五号',
-						count:111,
-						price:122,
-						img:require('@/assets/img/5.png')
-					},{
-						name:'订单六号',
-						count:302,
-						price:82,
-						img:require('@/assets/img/1.jpg')
-					},{
-						name:'订单七号',
-						count:42,
-						price:452,
-						img:require('@/assets/img/2.jpg')
-					},{
-						name:'订单八号',
-						count:100,
-						price:1022,
-						img:require('@/assets/img/3.jpg')
-					},{
-						name:'订单九号',
-						count:222,
-						price:2,
-						img:require('@/assets/img/4.jpg')
-					}
-				],
+				dingdanArr:[],
 				flag:false
 			}
 		},
@@ -82,8 +35,18 @@
 				this.flag = false;
 			},
 			onRemove(index){
-				this.dingdanArr.splice(index,1)
+				this.axios.post('/a/dingdan/',[index]).then(res=>{
+					this.dingdanArr.splice(res.data.index,1)
+				})
+			},
+			getData(){
+				this.axios.get('/a/dingdan/').then(res=>{
+					this.dingdanArr = res.data.listArr;
+				})
 			}
+		},
+		mounted(){
+			this.getData();
 		}
 	}
 </script>

@@ -18,27 +18,7 @@
 	export default{
 		data(){
 			return{
-				dingdanArr:[
-					{
-						name:'齐文蒸',
-						areas:'北京北工商管理专修学院'
-					},{
-						name:'毛志远',
-						areas:'北京北工商管理学院'
-					},{
-						name:'禄宇童',
-						areas:'河北商管理专修学院'
-					},{
-						name:'阿猫',
-						areas:'北京北工商管理专修学院阿猫'
-					},{
-						name:'阿狗',
-						areas:'北京北工商管理专修学院阿狗'
-					},{
-						name:'阿绿',
-						areas:'北京北工商管理专修学院阿绿'
-					}
-				],
+				dingdanArr:[],
 				flag:false
 			}
 		},
@@ -53,8 +33,18 @@
 				this.flag = false;
 			},
 			onRemove(index){
-				this.dingdanArr.splice(index,1)
+				this.axios.post('/a/address/',[index]).then(res=>{
+					this.dingdanArr.splice(res.data.index,1);
+				})
+			},
+			getData(){
+				this.axios.get('/a/address/').then(res=>{
+					this.dingdanArr = res.data.listArr;
+				})
 			}
+		},
+		mounted(){
+			this.getData()
 		}
 	}
 </script>

@@ -165,18 +165,6 @@ app.post('/address',function(req,res){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 //店铺图片
 app.get('/dimg',function(req,res){
 	res.send({

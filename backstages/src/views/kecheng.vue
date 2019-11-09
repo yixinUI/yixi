@@ -128,9 +128,6 @@
 <script>
 	export default{
 		mounted(){
-			this.axios.get('/lis').then(res=>{
-				console.log(res)
-			})
 		}
 	}
 </script>

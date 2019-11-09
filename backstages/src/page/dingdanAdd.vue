@@ -31,7 +31,9 @@
 						count:this.count,
 						price:this.price,
 					}
-					this.$parent.onAddBack(obj)
+					this.axios.post('/a/dingdan/',obj).then(res=>{
+						this.$parent.onAddBack(res.data.obj)
+					})
 					this.name = '';
 					this.count = '';
 					this.price = '';

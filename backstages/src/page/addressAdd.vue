@@ -29,7 +29,9 @@
 						name:this.name,
 						areas:this.areas
 					}
-					this.$parent.onAddBack(obj)
+					this.axios.post('/a/address/',obj).then(res=>{
+						this.$parent.onAddBack(res.data.obj)
+					})
 					this.name = '';
 					this.areas = '';
 				}

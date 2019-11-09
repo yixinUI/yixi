@@ -13,23 +13,7 @@
 		data(){
 			return{
 				states:false,
-				imgs:[ 
-					'../../static/img/1.jpg',
-					'../../static/img/2.jpg',
-					'../../static/img/3.jpg',
-					'../../static/img/4.jpg',
-					'../../static/img/5.jpg',
-					'../../static/img/1.jpg',
-					'../../static/img/2.jpg',
-					'../../static/img/3.jpg',
-					'../../static/img/4.jpg',
-					'../../static/img/5.jpg',
-					'../../static/img/1.jpg',
-					'../../static/img/2.jpg',
-					'../../static/img/3.jpg',
-					'../../static/img/4.jpg',
-					'../../static/img/5.jpg',
-				]
+				imgs:[]
 			}
 		},
 		methods:{
@@ -51,7 +35,15 @@
 					this.states=false
 				}
 				
+			},
+			getData(){
+				this.axios.get('/a/dimg/').then(res=>{
+					this.imgs = res.data.listArr;
+				})
 			}
+		},
+		mounted(){
+			this.getData();
 		}
 	}
 </script>
