@@ -1,9 +1,113 @@
 <template>
 	<div class="img">
-		店铺图片
+		<div  @click="jia()" >添加</div>
+		<div class='jia'><input @keyup.enter="add($event)" v-show="states?'active':''" type="text" placeholder="写下图片路径点击回车添加"/></div>
+		<ul class='list-i'>
+			<li class='list-li' v-for="item,index in imgs"><img :src="item" alt="" /><span class='span' @click="remove(index)">删除</span></li>
+		</ul>
 	</div>
 </template>
 <script>
+	export default{
+		name:'imgs',
+		data(){
+			return{
+				states:false,
+				imgs:[ 
+					'../../static/img/1.jpg',
+					'../../static/img/2.jpg',
+					'../../static/img/3.jpg',
+					'../../static/img/4.jpg',
+					'../../static/img/5.jpg',
+					'../../static/img/1.jpg',
+					'../../static/img/2.jpg',
+					'../../static/img/3.jpg',
+					'../../static/img/4.jpg',
+					'../../static/img/5.jpg',
+					'../../static/img/1.jpg',
+					'../../static/img/2.jpg',
+					'../../static/img/3.jpg',
+					'../../static/img/4.jpg',
+					'../../static/img/5.jpg',
+				]
+			}
+		},
+		methods:{
+			remove(index){
+				this.imgs.splice(index,1)
+			},
+			jia(){
+				this.states=!this.states
+				console.log(this.states)
+			},
+			add(e){
+				if(e.target.value==''){
+					alert('无路径')
+					this.states=false
+				}else{
+					var add=e.target.value
+					this.imgs.push(add)
+					e.target.value=''
+					this.states=false1
+				}
+				
+			}
+		}
+	}
 </script>
 <style>
+	*{
+		margin:0;
+		padding:0;
+	}
+	ul,li{
+		list-style: none;
+	}
+.list-i{
+	width:100%;
+	height:400px;
+	display: flex;
+	flex-wrap: wrap;
+	overflow: hidden;
+	overflow: scroll;
+}
+.list-li{
+		position: relative;
+		width:200px;
+		height:200px;
+		margin-left:20px;
+		margin-top:20px;
+	}
+.list-li img{
+		width:200px;
+		height:200px;
+}
+.list-li .span{
+	position: absolute;
+	bottom:0;
+	left:0;
+	text-align: center;
+	width:100%;
+	height:30px;
+	line-height: 30px;
+	background:rgba(0,0,0,.5);
+	color:#fff;
+	font-size: 12px;
+}
+.img{
+	position: relative;
+}
+.img .jia{
+	position: absolute;
+	width:100px;
+	height:200px;
+	text-align: center;
+	line-height: 200px;
+	top:50%;
+	left:50%;
+	margin-left:-100px;
+	margin-top:-100px;
+	z-index: 2;
+}
+
 </style>
