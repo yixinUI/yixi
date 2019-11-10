@@ -15,7 +15,6 @@
 				states:false,
 				imgs:[],
 				str:'',
-				imgs:[]
 			}
 		},
 		methods:{
