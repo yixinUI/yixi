@@ -5,9 +5,10 @@
 				<h3>
 					艺欣后台管理系统
 				</h3>
-				<div class="name">会员: 齐文蒸先生</div>
+				<div class="name" v-show="flag">会员: 齐文蒸先生</div>
+				<div class="name" v-show="!flag" @click="onLogin()">请您先登录</div>
 				<p>(艺欣艺术学校管理系统)</p>
-				<div class="tui">退出</div>
+				<div class="tui" @click="drop()">退出</div>
 			</el-header>
 		</el-container>
 		<el-container>
@@ -24,6 +25,7 @@
 	export default {
 		data() {
 			return {
+				flag:window.localStorage.getItem('login'),
 				curIndex: 0,
 				listArr: [{
 					title: '店铺图片数据管理',
@@ -55,6 +57,22 @@
 		methods: {
 			qiehuan(index) {
 				this.curIndex = index;
+			},
+			drop(){
+				let flag = window.localStorage.getItem('login');
+				if(flag == 'true'){
+					alert('退出成功');
+					window.localStorage.setItem('login',false);
+					this.flag = JSON.parse(window.localStorage.getItem('login'))
+				}else{
+					alert('您还未登录')
+					this.flag = JSON.parse(window.localStorage.getItem('login'))
+				}
+			},
+			onLogin(){
+				this.$router.push({
+					path:'/login'
+				})
 			}
 		}
 	}

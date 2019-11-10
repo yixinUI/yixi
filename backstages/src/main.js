@@ -15,6 +15,25 @@ import dingdanadd from '@/page/dingdanAdd'
 import addressadd from '@/page/addressAdd'
 
 
+router.beforeEach((to,from,next)=>{
+	if(to.meta.login){//判断有没有定义拦截
+		//如果定义的话就判断有没有登录
+		if(window.localStorage.getItem('login') == 'true'){
+			next()
+		}else{
+			next({
+				path:'/login',
+				query:{
+					login:to.fullPath
+				}
+			})
+		}
+	}else{
+		next()
+	}
+})
+
+
 
 
 

@@ -15,8 +15,7 @@ app.use(body.urlencoded({
 app.use(body.json())
 //登录
 app.post('/login', function(req, res) {
-	console.log(req.body.obj)
-	if(req.body.obj.name == '123' && req.body.obj.pass == 'aaa'){
+	if(req.body.name == '123' && req.body.pass == 'aaa'){
 		res.send({
 			code: 0,
 			msg: '登录成功000',
@@ -160,33 +159,28 @@ app.post('/address',function(req,res){
 	}
 })
 
-
-
-
-
-
 //店铺图片
 app.get('/dimg',function(req,res){
 	res.send({
 		code:0,
 		msg:'请求成功',
 		listArr:[
-					'./static/img/1.jpg',
-					'./static/img/2.jpg',
-					'./static/img/3.jpg',
-					'./static/img/4.jpg',
-					'./static/img/5.jpg',
-					'./static/img/1.jpg',
-					'./static/img/2.jpg',
-					'./static/img/3.jpg',
-					'./static/img/4.jpg',
-					'./static/img/5.jpg',
-					'./static/img/1.jpg',
-					'./static/img/2.jpg',
-					'./static/img/3.jpg',
-					'./static/img/4.jpg',
-					'./static/img/5.jpg',
-				]
+				'./static/img/1.jpg',
+				'./static/img/2.jpg',
+				'./static/img/3.jpg',
+				'./static/img/4.jpg',
+				'./static/img/5.jpg',
+				'./static/img/1.jpg',
+				'./static/img/2.jpg',
+				'./static/img/3.jpg',
+				'./static/img/4.jpg',
+				'./static/img/5.jpg',
+				'./static/img/1.jpg',
+				'./static/img/2.jpg',
+				'./static/img/3.jpg',
+				'./static/img/4.jpg',
+				'./static/img/5.jpg',
+			]
 	})
 })
 

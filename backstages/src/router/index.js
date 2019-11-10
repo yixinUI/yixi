@@ -30,6 +30,9 @@ export default new Router({
       		path: 'img',
 		      name: 'img',
 		      component: img,
+		      meta:{
+		      	login:true
+		      },
       	},{
       		path: 'kecheng',
 		      name: 'kecheng',
