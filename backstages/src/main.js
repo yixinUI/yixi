@@ -43,6 +43,9 @@ Vue.use(load,{
 	preLoad:1.3,
 	attempt:1
 })
+
+
+
 Vue.use(VueAxios, axios)
 Vue.use(Mint)
 Vue.use(ElementUI)
